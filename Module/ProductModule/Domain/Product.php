@@ -10,14 +10,6 @@ class Product
     private float $price;
     private string $category;
 
-    public function __construct(string $name, string $code, float $price, string $category)
-    {
-        $this->name = $name;
-        $this->code = $code;
-        $this->price = $price;
-        $this->category = $category;
-    }
-
     /**
      *  Getters and setters
      */

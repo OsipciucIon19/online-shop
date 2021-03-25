@@ -1,0 +1,44 @@
+[
+  {
+    "name": "test",
+    "code": "00000000",
+    "price": "99",
+    "category": "test2"
+  },
+  {
+    "name": "shirt",
+    "code": "00000001",
+    "price": "99",
+    "category": "clothes"
+  },
+  {
+    "name": "jacket",
+    "code": "00000002",
+    "price": "249",
+    "category": "clothes"
+  },
+  {
+    "name": "shoes",
+    "code": "00000003",
+    "price": "199",
+    "category": "shoes"
+  },
+  {
+    "name": "ball",
+    "code": "00000004",
+    "price": "49",
+    "category": "toys"
+  },
+  {
+    "name": "pants",
+    "code": "00000005",
+    "price": "79",
+    "category": "clothes"
+  },
+  {
+    "name": "slippers",
+    "code": "00000006",
+    "price": "29",
+    "category": "shoes"
+  }
+]
