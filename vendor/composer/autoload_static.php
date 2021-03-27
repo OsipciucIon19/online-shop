@@ -16,17 +16,17 @@ class ComposerStaticInitd9a3a284f86a3e869ca701b2cedf1fa3
     public static $prefixDirsPsr4 = array (
         'Module\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/Module',
         ),
     );
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Module\\ProductModule\\Domain\\Product' => __DIR__ . '/../..' . '/src/ProductModule/Domain/Product.php',
-        'Module\\ProductModule\\Domain\\ProductCollection' => __DIR__ . '/../..' . '/src/ProductModule/Domain/ProductCollection.php',
-        'Module\\ProductModule\\Domain\\ProductRepository' => __DIR__ . '/../..' . '/src/ProductModule/Domain/ProductRepository.php',
-        'Module\\ProductModule\\Domain\\ProductSearchCriteria' => __DIR__ . '/../..' . '/src/ProductModule/Domain/ProductSearchCriteria.php',
-        'Module\\ProductModule\\ProductCatalogServiceInterface' => __DIR__ . '/../..' . '/src/ProductModule/ProductCatalogServiceInterface.php',
+        'Module\\ProductModule\\Domain\\Product' => __DIR__ . '/../..' . '/Module/ProductModule/Domain/Product.php',
+        'Module\\ProductModule\\Domain\\ProductCollection' => __DIR__ . '/../..' . '/Module/ProductModule/Domain/ProductCollection.php',
+        'Module\\ProductModule\\Domain\\ProductRepository' => __DIR__ . '/../..' . '/Module/ProductModule/Domain/ProductRepository.php',
+        'Module\\ProductModule\\Domain\\ProductSearchCriteria' => __DIR__ . '/../..' . '/Module/ProductModule/Domain/ProductSearchCriteria.php',
+        'Module\\ProductModule\\ProductCatalogServiceInterface' => __DIR__ . '/../..' . '/Module/ProductModule/ProductCatalogServiceInterface.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -11,6 +11,32 @@ class Product
     private string $category;
 
     /**
+     * Product constructor.
+     * @param string $name
+     * @param string $code
+     * @param float $price
+     * @param string $category
+     */
+    public function __construct(string $name, string $code, float $price, string $category)
+    {
+        $this->name = $name;
+        $this->code = $code;
+        $this->price = $price;
+        $this->category = $category;
+    }
+
+    public static function forArray(array $product): Product {
+        return new Product($product['name'], $product['code'], $product['price'], $product['category']);
+    }
+
+    public static function toArray(Product $product): array {
+        foreach ($product as $key => $value) {
+            $productArr[$key] = $value;
+        }
+        return $productArr;
+    }
+
+    /**
      *  Getters and setters
      */
     public function getName(): string

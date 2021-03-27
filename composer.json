@@ -1,0 +1,13 @@
+{
+    "name": "osipc/shop",
+    "type": "project",
+    "require": {
+        "ext-json": "*"
+    },
+    "description": "",
+    "autoload": {
+        "psr-4": {
+            "Module\\" : "Module\\"
+        }
+    }
+}

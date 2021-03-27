@@ -8,45 +8,82 @@ use Module\ProductModule\ProductCatalogServiceInterface;
 
 class ProductRepository implements ProductCatalogServiceInterface
 {
+
+    public function load(): array
+    {
+        $json = file_get_contents('D:\UNI\Pentalog\shop\Module\ProductModule\products.json');
+        return json_decode($json, true);
+    }
+
+    public function save(array $productsList)
+    {
+        $save = json_encode(array_values($productsList), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        file_put_contents('D:\UNI\Pentalog\shop\Module\ProductModule\products.json', $save);
+    }
+
     public function getProductByCode(string $productCode): Product
     {
-        $json = file_get_contents('.\products.json', true);
-        $productsList = json_decode($json);
-        $product = new Product();
+        $productsList = $this->load();
 
-        foreach ($productsList as $key => $value) {
-            $product->{$key} = $value;
+        foreach ($productsList as $product) {
+            if ($product['code'] === $productCode) {
+                return Product::forArray($product);
+            }
         }
-
-
-        return $product;
     }
 
     public function searchProduct(ProductSearchCriteria $criteria): ProductCollection
     {
-        // TODO: Create ProductSearchCriteria class
+        $productsList = $this->load();
+
+        # NOT WORKING CODE!
+//        if(!empty($criteria->getName())) {
+//            $productsList = array_filter($productsList, fn (Product $product) => $this->searchByColumn($product, 'name', $criteria->getName()));
+//        }
+//        if(!empty($criteria->getCategory())) {
+//            $productsList = array_filter($productsList, fn (Product $product) => $this->searchByColumn($product, 'name', $criteria->getCategory()));
+//        }
+
+        return new ProductCollection(Product::forArray($productsList));
     }
+
 
     public function createProduct(Product $product): bool
     {
-        // TODO: Convert object to Json
+        $productsList = $this->load();
+        $productsList[] = Product::toArray($product);
+        $this->save($productsList);
 
-        // TODO: Insert Json to products.json
-
+        return true;
     }
 
     public function updateProduct(Product $product): bool
     {
-        // TODO: Get the product to change
+        $productsList = $this->load();
 
-        // TODO: Replace product with the new product passed in parameters
+        foreach ($productsList as $key => $p) {
+            if ($p['code'] === $product->getCode()) {
+                $productsList[$key] = Product::toArray($product);
+            }
+        }
 
-        // TODO: Insert Json to products.json
+        $this->save($productsList);
+
+        return true;
     }
 
     public function deleteProductByCode(string $productCode): bool
     {
-        // TODO: Delete product
+        $productsList = $this->load();
+
+        foreach ($productsList as $key => $product) {
+            if ($product['code'] === $productCode) {
+                unset($productsList[$key]);
+            }
+        }
+        $this->save($productsList);
+
+        return true;
     }
 }
 

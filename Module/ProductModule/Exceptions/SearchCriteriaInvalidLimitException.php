@@ -1,7 +1,10 @@
 <?php
 
+namespace Module\ProductModule\Exception;
 
-class SearchCriteriaInvalidLimitException
+use DomainException;
+
+class SearchCriteriaInvalidLimitException extends DomainException
 {
 
 }
