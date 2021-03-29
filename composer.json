@@ -2,7 +2,8 @@
     "name": "osipc/shop",
     "type": "project",
     "require": {
-        "ext-json": "*"
+        "ext-json": "*",
+      "ext-mbstring": "*"
     },
     "description": "",
     "autoload": {

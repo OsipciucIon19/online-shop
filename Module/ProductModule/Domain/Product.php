@@ -25,7 +25,7 @@ class Product
         $this->category = $category;
     }
 
-    public static function forArray(array $product): Product {
+    public static function fromArray(array $product): Product {
         return new Product($product['name'], $product['code'], $product['price'], $product['category']);
     }
 

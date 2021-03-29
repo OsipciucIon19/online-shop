@@ -6,9 +6,8 @@ use ArrayObject;
 
 class ProductCollection extends ArrayObject
 {
-    public function __construct(Product $product)
+    public function __construct(Product ...$products)
     {
-        parent::__construct($product);
+        parent::__construct($products);
     }
-
 }
